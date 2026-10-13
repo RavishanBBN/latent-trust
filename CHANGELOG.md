@@ -9,6 +9,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Version
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-13
+
+### Added
+- `docs/reading-list.md`: staged reading list. It covers self-supervised learning, then JEPA, world models,
+  latent planning, time-series SSL, and finally JEPA on time series and industrial data.
+  - 41 peer-reviewed papers and 5 essential non-peer-reviewed works.
+  - Every venue was checked against primary sources (arXiv, PMLR, NeurIPS, CVF, OpenReview, Nature, IEEE, AAAI, IJCAI).
+  - Includes a ★ core path and per-paper read checkboxes.
+
+### Changed
+- `docs/literature/jepa-sensor-streams.md`: corrected venues.
+  - Girgis et al. TS-JEPA is in IEEE IoT Journal 2026, not arXiv-only.
+  - SC-JEPA is SDM 2026, to appear.
+  - Yan et al. is IEEE SDS 2025.
+  - The Ennadir "TS-JEPA" lead is resolved to *Joint Embeddings Go Temporal* (arXiv 2509.25449, NeurIPS 2024 workshop).
+- `README.md`: indexed the reading list.
+
 ## [0.1.0] - 2026-10-13
 
 ### Added

@@ -4,6 +4,38 @@ Newest entries first. Each entry has these parts: **Done**, **Findings**, **Deci
 
 ---
 
+## 2026-10-13: Session 2: Reading list for fundamentals
+
+**Done**
+- Built `docs/reading-list.md`, a staged path from self-supervised learning to JEPA, world models,
+  latent planning, time-series SSL and finally JEPA on time series.
+  - 41 peer-reviewed papers + 5 essential preprints, with a ★ core path of ~22 papers.
+  - Venues were verified against primary sources by three parallel checks covering ~50 papers.
+- Corrected venues in the literature table.
+
+**Findings**
+- Several important works are **not peer-reviewed** as of Oct 2026. They are kept in a separate "essential" table:
+  - V-JEPA 2 (arXiv only)
+  - LeCun's JEPA position paper
+  - RoboJEPA
+  - CPC
+  - LeJEPA
+  - Cosmos (tech report)
+- **DINO-WM (ICML 2025)** and **PLDM (NeurIPS 2025)** are peer-reviewed versions of the "frozen encoder +
+  latent predictor + planning" recipe. Cite these alongside V-JEPA 2-AC.
+- "TS-JEPA" is the nickname of two different papers:
+  - Girgis et al., IEEE IoT J 2026
+  - Ennadir et al., NeurIPS 2024 workshop
+
+  Always cite them by author.
+- Some arXiv "Comments" fields give the wrong venue. For example, I-JEPA's says ICCV, but the paper is CVPR 2023. Always cite the proceedings.
+
+**Next**
+- [ ] Start Phase 1 of the reading list (SSL basics).
+- [ ] The open items from Session 1 still stand.
+
+---
+
 ## 2026-10-13: Session 1: Kickoff and source review
 
 **Done**

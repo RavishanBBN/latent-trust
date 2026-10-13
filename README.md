@@ -17,6 +17,7 @@ contribute to. They shared two links, which are summarised under `docs/sources/`
 | Path | What it holds |
 |------|---------------|
 | [docs/PROGRESS.md](docs/PROGRESS.md) | Dated log: what was done, decisions, next steps. **Start here.** |
+| [docs/reading-list.md](docs/reading-list.md) | 41 verified peer-reviewed papers + 5 essential preprints, in 6 stages, with a ★ core path |
 | [docs/sources/01-blog-llms-world-models.md](docs/sources/01-blog-llms-world-models.md) | Summary and notes on Shamane Siriwardhana's blog post |
 | [docs/sources/02-osiris-repo.md](docs/sources/02-osiris-repo.md) | Summary and assessment of the OSIRIS GitHub repo |
 | [docs/literature/jepa-sensor-streams.md](docs/literature/jepa-sensor-streams.md) | Related-work table: JEPA and latent world models on time series and sensors |

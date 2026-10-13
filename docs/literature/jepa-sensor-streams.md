@@ -1,6 +1,6 @@
 # Related Work: JEPA and Latent World Models on Sensors and Time Series
 
-Last updated: 2026-10-13
+Last updated: 2026-10-13 (venues verified)
 
 **Verification levels:**
 - `search`: only the title or snippet from a search result.
@@ -31,9 +31,9 @@ Last updated: 2026-10-13
 
 | Paper | Date | Domain | AC? | Adapt? | Key point | Code | Verified |
 |-------|------|--------|-----|--------|-----------|------|----------|
-| [Learning Actionable World Models for Industrial Process Control](https://arxiv.org/abs/2503.01411) (Yan et al., SDS 2025) | 2025-03 | **Plastic injection moulding** | ✅ factored process parameters | ✗ | JEPA-inspired with contrastive learning. Disentangles process parameters in latent space for fine-grained control, from very limited data. **The closest prior work.** | none listed | abstract |
-| [TS-JEPA for Predictive Remote Control](https://arxiv.org/abs/2406.04853) | 2024-06 | Networked control (inverted cart-pole) | ✅ (semantic actor) | ✗ | TS-JEPA with a semantic actor, for control under limited uplink capacity. | ? | search |
-| [SC-JEPA (v1 title: MTS-JEPA)](https://arxiv.org/abs/2602.04643) (He et al., SDM 2026) | 2026-02 (v2 2026-07) | Multivariate TS anomaly **prediction** | ✗ | ✗ | Stabilises JEPA self-distillation on time series with a soft codebook bottleneck and a multi-resolution objective. Early warning on 5 benchmarks. | none listed | abstract |
+| [Learning Actionable World Models for Industrial Process Control](https://arxiv.org/abs/2503.01411) (Yan et al., IEEE SDS 2025, Swiss Conf. on Data Science) | 2025-03 | **Plastic injection moulding** | ✅ factored process parameters | ✗ | JEPA-inspired with contrastive learning. Disentangles process parameters in latent space for fine-grained control, from very limited data. **The closest prior work.** | none listed | abstract |
+| [TS-JEPA for Predictive Remote Control](https://arxiv.org/abs/2406.04853) (Girgis, Valcarce, Bennis; **IEEE IoT Journal 2026**) | 2024-06 | Networked control (inverted cart-pole) | ✅ (semantic actor) | ✗ | TS-JEPA with a semantic actor, for control under limited uplink capacity. | ? | search |
+| [SC-JEPA (v1 title: MTS-JEPA)](https://arxiv.org/abs/2602.04643) (He et al., SDM 2026, to appear Nov 2026) | 2026-02 (v2 2026-07) | Multivariate TS anomaly **prediction** | ✗ | ✗ | Stabilises JEPA self-distillation on time series with a soft codebook bottleneck and a multi-resolution objective. Early warning on 5 benchmarks. | none listed | abstract |
 | [CF-JEPA](https://arxiv.org/abs/2606.07031) (Lee & Sim) | 2026-06 | TS representation learning | ✗ | ✗ | Mask-free multi-horizon forward prediction. The online encoder is better for classification, the EMA target encoder for forecasting and anomaly detection. −27% forecasting MSE. Evaluated on UCR/UEA, ETT, KPI/Yahoo. | none listed | abstract |
 | [Phys-JEPA](https://arxiv.org/abs/2606.16076) (Nie et al.) | 2026-06 | Multivariate TS forecasting | ✗ | ✗ | Latent state split into **physical + residual** parts, with physics consistency enforced on latents. Evaluated on Jena Climate, Traffic, Electricity. | none listed | abstract |
 
@@ -45,7 +45,7 @@ Last updated: 2026-10-13
 | Hamiltonian JEPA: Action-Conditioned World Models with an Inherited Control State | https://arxiv.org/abs/2609.33497 | Separates the perception embedding from the control state |
 | Diagnosing JEPA World Models with Action-Conditioned Predictive Consistency | https://arxiv.org/abs/2608.12939 | Evaluation methodology for AC world models |
 | Decision-Metric Alignment in Latent World Models (MPC planning) | https://arxiv.org/abs/2608.18746 | Latent world models used with MPC, which fits process control |
-| TS-JEPA (Ennadir et al., 2025) | (cited inside SC-JEPA, link to be found) | Possibly the canonical "TS-JEPA" paper |
+| Joint Embeddings Go Temporal (Ennadir, Golkar, Sarra), NeurIPS 2024 TSALM workshop | https://arxiv.org/abs/2509.25449 | The "TS-JEPA" other papers cite. Not the same paper as Girgis et al. |
 
 ## Observations (as of 2026-10-13)
 
