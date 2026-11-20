@@ -8,7 +8,7 @@ Continuous-time model, minimum-phase setting P-:
     dh4/dt = -a4/A4 sqrt(2 g h4) + (1-g1) k1/A4 v1
 
 State x = [h1, h2, h3, h4] (cm), control u = [v1, v2] (V), measurement z = [h1, h2] (cm).
-Parameter values are those reported for P- in Johansson (2000) (confirmed via secondary sources, see docs).
+Parameter values are those reported for P- in Johansson (2000).
 """
 from __future__ import annotations
 
