@@ -1,6 +1,6 @@
 # Thesis and Candidate Directions
 
-Last updated: 2026-10-13 · Status: **exploratory, no direction chosen yet**
+Last updated: 2026-11-14 · Status: **D5 chosen** (see `D5-latent-bayesian-filtering.md`)
 
 ## 1. The claim under consideration
 
@@ -73,6 +73,13 @@ Build a JEPA that handles asynchronous sensors at different sampling rates. OSIR
 (USGS, FIRMS, NOAA, OpenSky) would provide passive data for representation pretraining.
 - *Why it's good:* real sensor data is messy, and most TS-JEPAs assume regular, aligned channels.
 - *Risk:* there are no actions in this data, so it drifts back into the crowded passive-forecasting area.
+
+### D5. Latent Bayesian filtering + innovation-based trust monitoring ⭐⭐ CHOSEN (2026-11-14)
+Run an EKF/UKF/PF inside the latent space of a decoder-free action-conditioned JEPA, with encoder embeddings as
+measurements, make the innovation statistic (NIS) calibrated, and use it as a run-time trust/fault monitor and as
+the belief for MPC. It combines D1 (AC-JEPA on process control), D3 (a principled version of the imagination-error
+proxy) and the blog's open problems #2 and #4. Seed results come from the EN4594 mini project. Full plan in
+`D5-latent-bayesian-filtering.md`.
 
 ## 4. Questions to resolve next
 1. What compute is available (GPU type and hours)? This decides between D1/D3 and D2.

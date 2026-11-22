@@ -4,6 +4,40 @@ Newest entries first. Each entry has these parts: **Done**, **Findings**, **Deci
 
 ---
 
+## 2026-11-14: Session 3: Direction chosen (D5), seed experiment, Q1 plan
+
+**Done**
+- Ran the EN4594 mini project as the seed experiment (`assignment/report.pdf`, code in `src/lbf`).
+  - Physics EKF on the quadruple tank.
+  - NumPy JEPA world model, plus an EKF in its latent space.
+- Verified ~45 new references and the dataset facts (two literature passes, checked against primary pages).
+- Wrote the D5 Q1 plan, a journal fee table and `CLAUDE.md` for the move to Claude Code.
+
+**Findings**
+- Physics EKF results:
+  - Consistent: ANEES 4.10, ANIS 2.01, inside their χ² bands 95 % of the time.
+  - RMSE 0.038 cm.
+  - The NIS monitor detects a hidden-tank leak in 36 s and a sensor bias in 5 s, with no false alarms.
+- Latent EKF results:
+  - Recovers the unmeasured level h₃ to 0.107 cm without physics.
+  - tr R_lat (0.072) > tr Q_lat (0.023): the learned predictor is less accurate than the embedding noise, so the filter gains only ~2 %.
+  - The latent NIS spikes at input steps, which hurts detection: a 0.02 cm² leak is detected in 23 % of runs, rising to 87 % at 0.08 cm².
+- **The bottleneck is calibrating the world model's uncertainty.** That becomes RQ1–RQ2.
+- Closest prior work: **K-PWM** (NeurIPS 2026, arXiv 2611.11521) runs a latent EKF with MPPI, but is decoder-based and has no monitor. MTS3, KVAE, RKN, Deshpande (L-CSS 2023) and Falconer (Physica D 2025) are also close.
+- **PRONTO** (real rig, CC BY 4.0) is the best free real dataset that logs control inputs and has labelled faults.
+
+**Decisions**
+- D5 chosen as the primary research direction. Target journal: J. Process Control or EAAI (free); stretch: IEEE TNNLS.
+- Earthquake-early-warning particle-filter idea kept as a second project (separate repo `eew-particle-filter`).
+
+**Next**
+- [ ] Commit this session (see CLAUDE.md rule 6), tag v0.3.0.
+- [ ] Port to PyTorch; add the noise head R(s,u) and β-NLL; handle correlated measurement noise; UKF; adaptive Q/R.
+- [ ] Build the TEP pipeline and baselines; post an arXiv preprint by about 9 Jan 2027.
+- [ ] Read K-PWM and the SSRN Lahoud paper in full before writing any novelty claim.
+
+---
+
 ## 2026-10-13: Session 2: Reading list for fundamentals
 
 **Done**

@@ -3,7 +3,8 @@
 Working notes for exploring **world models** and, specifically, **JEPA-style latent
 world models on sensor streams** as a possible research contribution.
 
-> Status: **pre-repo / exploration phase** · Docs version: see [CHANGELOG.md](CHANGELOG.md)
+> Status: **direction chosen (D5), seed code + results exist** · Docs version: see [CHANGELOG.md](CHANGELOG.md)
+> **Working with Claude Code? Read [CLAUDE.md](CLAUDE.md) first.**
 > Started: 2026-10-13
 
 ## Origin
@@ -22,6 +23,12 @@ contribute to. They shared two links, which are summarised under `docs/sources/`
 | [docs/sources/02-osiris-repo.md](docs/sources/02-osiris-repo.md) | Summary and assessment of the OSIRIS GitHub repo |
 | [docs/literature/jepa-sensor-streams.md](docs/literature/jepa-sensor-streams.md) | Related-work table: JEPA and latent world models on time series and sensors |
 | [docs/research/thesis-and-directions.md](docs/research/thesis-and-directions.md) | The "world models vs LLMs" claim, gaps found, and candidate contributions |
+| [docs/research/D5-latent-bayesian-filtering.md](docs/research/D5-latent-bayesian-filtering.md) | **Chosen direction (Q1 plan):** latent Bayesian filtering + innovation-based trust monitoring for JEPA world models |
+| [docs/literature/latent-filtering-related-work.md](docs/literature/latent-filtering-related-work.md) | Verified related work for D5 (filters, learned filters, 2025–26 close works) |
+| [docs/literature/datasets-and-benchmarks.md](docs/literature/datasets-and-benchmarks.md) | Quadruple tank, TEP, PRONTO (real), HVAC, SWaT; FDD baselines |
+| [docs/publishing/target-journals.md](docs/publishing/target-journals.md) | Q1 targets and verified fees (free subscription routes) |
+| `src/lbf/`, `experiments/`, `tests/`, `results/` | Seed code (NumPy): quadruple tank, EKF, JEPA world model, latent EKF |
+| `assignment/` | EN4594 mini-project report (the seed experiment) |
 | [CHANGELOG.md](CHANGELOG.md) | Versioned history of these docs |
 
 ## Working conventions

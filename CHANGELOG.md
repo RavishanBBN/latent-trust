@@ -9,6 +9,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Version
 
 ## [Unreleased]
 
+### Added (2026-11-14, Session 3)
+- `CLAUDE.md`: brief for Claude Code (context, rules, status, next tasks).
+- `docs/research/D5-latent-bayesian-filtering.md`: chosen direction with Q1 plan (RQs, method, experiments, baselines, timeline, venues, risks).
+- `docs/literature/latent-filtering-related-work.md`: ~45 verified references (filtering theory, learned/latent filters, 2025–26 close works incl. K-PWM).
+- `docs/literature/datasets-and-benchmarks.md`: verified dataset facts (quadruple-tank parameters, TEP Rieth/Reinartz, PRONTO real data CC BY 4.0, LBNL HVAC, SWaT) and FDD baselines.
+- `docs/publishing/target-journals.md`: verified fee/route table.
+- Seed code `src/lbf/` (quadruple tank, EKF, metrics, NumPy autodiff, JEPA world model, latent EKF), `experiments/run_assignment.py`, `tests/test_autodiff.py`, `results/`, `requirements.txt`.
+- `assignment/`: EN4594 mini-project report (LaTeX + PDF).
+
+### Changed
+- `README.md`: index of new docs and code.
+- `docs/research/thesis-and-directions.md`: D5 added and marked as chosen.
+
 ## [0.2.0] - 2026-10-13
 
 ### Added

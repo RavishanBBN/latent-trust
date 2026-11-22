@@ -1,0 +1,6 @@
+Part A: physics EKF
+ A2 {'rmse': {'meas': [0.1501, 0.1506, None, None], 'ol': [0.0757, 0.0928, 0.0347, 0.04], 'ekf': [0.0376, 0.0379, 0.0335, 0.0382]}, 'anees_mean': 4.104724776290529, 'anis_mean': 2.008872859370685, 'nees_band': (3.2545596500369256, 4.821157910126218), 'nis_band': (1.4844385494984746, 2.5912239437167317), 'frac_in_band_nees': 0.9525, 'frac_in_band_nis': 0.950625}
+Part B: JEPA world model + latent EKF
+ B est {'raw': [0.2478, 0.2557, 0.1078, 0.0741], 'lat': [0.2434, 0.2527, 0.107, 0.0734], 'phys': [0.0373, 0.0378, 0.0329, 0.0386]}
+ B faults {'leak_tank3': {'physics': {'detection_rate': 1.0, 'median_delay_s': 36.0, 'false_alarm_rate': 0.0}, 'latent': {'detection_rate': 0.23333333333333334, 'median_delay_s': 675.0, 'false_alarm_rate': 0.0}, 'latent_kstep': {'detection_rate': 0.03333333333333333, 'median_delay_s': 881.0, 'false_alarm_rate': 0.0}}, 'bias_sensor1': {'physics': {'detection_rate': 1.0, 'median_delay_s': 5.0, 'false_alarm_rate': 0.0}, 'latent': {'detection_rate': 0.1, 'median_delay_s': 557.0, 'false_alarm_rate': 0.0}, 'latent_kstep': {'detection_rate': 0.03333333333333333, 'median_delay_s': 143.0, 'false_alarm_rate': 0.0}}}
+done in 459.3 s
