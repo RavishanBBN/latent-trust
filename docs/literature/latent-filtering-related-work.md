@@ -56,7 +56,7 @@ How these were checked: each entry was looked up on a primary page, either the p
 
 | Work | Status | Link | Relation |
 |---|---|---|---|
-| **K-PWM**: structured bilinear world models under partial observation (Rajkumar et al.) | arXiv 2611.11521; **accepted at NeurIPS 2026** | https://arxiv.org/abs/2611.11521 | **Closest.** EKF filtering and smoothing in latent space plus MPPI; has a decoder, no innovation monitor, MuJoCo only |
+| **K-PWM**: *Control-Oriented Structured Bilinear World Models under Partial Observation* (Rajkumar, Narayanan, Otto, Goswami) | arXiv 2611.11521 v1 (8 Nov 2026); **accepted at NeurIPS 2026**; code: https://github.com/santoshrajkumar/k-pwm-world-model-control · **checked 2026-11-22: abstract + partial full text** (HTML; the middle section, which has the derivations and experiments, was read only through a summary) | https://arxiv.org/abs/2611.11521 | **Closest.** Koopman-bilinear latent model trained by EM (EKF + RTS smoother); MLP **decoder** y = h(z) + v, so measurements are raw sensors, not embeddings; **constant** learned Σ_w and Σ_v (closed-form M-step, no state- or input-dependent noise); uncertainty-aware MPPI. **No** NIS/NEES calibration, **no** innovation-based monitor, no trust gating; MuJoCo only. Not yet covered by the D5 comparison: decoder-free JEPA, h(s) = s, calibrated NIS monitor, R(s, u) head, industrial data. Before submission: read the middle section in the PDF |
 | VJEPA (Huang) | arXiv 2601.14354 (Jan 2026) | https://arxiv.org/abs/2601.14354 | Probabilistic JEPA framed as Bayesian filtering; no sensor data or NIS |
 | UWM-JEPA (Radha & Goktas) | arXiv 2605.25313 | https://arxiv.org/abs/2605.25313 | Belief space as a density matrix; no filter or MPC |
 | AdaJEPA (Wang, LeCun et al.) | arXiv 2606.32026 | https://arxiv.org/abs/2606.32026 | Test-time adaptation driven by prediction error inside MPC |
@@ -70,7 +70,7 @@ How these were checked: each entry was looked up on a primary page, either the p
 | BeliefGraph-JEPA (Li et al.) | arXiv 2610.05409 | https://arxiv.org/abs/2610.05409 | Action-conditioned time-series JEPA (industrial); forecasting only |
 | Ensemble KF in a VAE latent space (Pasmans et al.) | arXiv 2502.12987 | https://arxiv.org/abs/2502.12987 | Latent EnKF (geoscience) |
 | JEPA latent world model for MPC (Santos) | Zenodo 10.5281/zenodo.23890647; **JEPA results "pending"** | https://zenodo.org/records/23890647 | Weak; do not cite as evidence |
-| Lahoud: Kalman-inspired latent-state estimation, V-JEPA 2 for satellite AOI monitoring | SSRN 6521219; **abstract unverified** | https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6521219 | Possibly close; **must read before claiming novelty** |
+| Lahoud: Kalman-inspired latent-state estimation, V-JEPA 2 for satellite AOI monitoring | SSRN 6521219; **abstract unverified** (2026-11-22: the SSRN page returns 403 to automated fetches; read it in a browser) | https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6521219 | Possibly close; **must read before claiming novelty** |
 
 ## E. JEPA / SSL ingredients used in the seed model
 Assran et al. 2023 (I-JEPA, CVPR); Assran et al. 2025 (V-JEPA 2, arXiv 2506.09985); Grill et al. 2020 (BYOL,

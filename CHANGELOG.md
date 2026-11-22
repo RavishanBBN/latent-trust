@@ -9,6 +9,24 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Version
 
 ## [Unreleased]
 
+### Added (2026-11-22, Session 4)
+- `tests/test_filters.py`: 14 pytest checks covering:
+  - the EKF equals the linear KF (Joseph and standard updates);
+  - prediction-only steps;
+  - NEES/NIS consistency on a linear model;
+  - `quadtank.G_disc` and `JEPAWorldModel.predict_jacobian` against finite differences;
+  - NumPy vs autodiff forward passes;
+  - `chi2_band` quantiles, report values and coverage.
+- `learning/`: a foundations course (12-day plan). Lesson 1 covers Gaussians, Bayes' rule and χ², with self-checking exercises and solutions.
+
+### Changed
+- `docs/literature/latent-filtering-related-work.md`:
+  - K-PWM upgraded to abstract + partial full-text verification, with details: decoder-based, constant Σ_w/Σ_v, no NIS monitor or calibration, MuJoCo only, code link.
+  - Lahoud SSRN noted as blocked to automated fetches.
+- `.gitignore`: exercise figure outputs.
+
+## [0.3.0] - 2026-11-14
+
 ### Added (2026-11-14, Session 3)
 - `CLAUDE.md`: brief for Claude Code (context, rules, status, next tasks).
 - `docs/research/D5-latent-bayesian-filtering.md`: chosen direction with Q1 plan (RQs, method, experiments, baselines, timeline, venues, risks).

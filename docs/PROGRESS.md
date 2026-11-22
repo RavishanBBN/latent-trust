@@ -4,6 +4,37 @@ Newest entries first. Each entry has these parts: **Done**, **Findings**, **Deci
 
 ---
 
+## 2026-11-22: Session 4: Reproduction, tests, novelty check, foundations course
+
+**Done**
+- Moved to a new machine (copies extracted from the zips) and set up `.venv` (numpy 2.5, scipy 1.18, matplotlib 3.11, pytest; no torch and no GPU yet).
+- Reproduced `experiments/run_assignment.py` (504 s). `results.json` matches the 2026-11-14 run except for timing and the last floating-point digits.
+- Added `tests/test_filters.py`. All 15 tests (with the gradcheck) pass.
+- Committed the 2026-11-14 work and tagged `v0.3.0`.
+- Novelty check of K-PWM: abstract read, plus the full HTML text with the middle section read only via a summary.
+- Started a foundations course in `learning/` and wrote Lesson 1.
+
+**Findings**
+- **K-PWM** (arXiv 2611.11521) differs from D5 on every axis that matters:
+  - it uses an MLP decoder, so its measurements are raw sensors, not embeddings;
+  - its process and measurement noise covariances are constant and fitted in closed form, not learned per state and input;
+  - it has no NIS/NEES calibration and no innovation monitor;
+  - it is evaluated on MuJoCo only.
+  
+  It does already cover a latent EKF + uncertainty-aware MPPI, so D5 must not claim "belief-space MPC" as novel by itself.
+- **Lahoud** (SSRN 6521219): SSRN returns 403 to automated fetches, so it is still unread.
+
+**Decisions**
+- Learn the foundations first. A ~12-day course at 6–7 h/day (probability → filtering → NN/SSL/JEPA → world models) runs before the research work, so the author can defend every part. The research restarts around 4 Dec 2026, and the preprint target stays at ~9 Jan 2027.
+
+**Next**
+- [ ] Lessons 1–4 (`learning/README.md`).
+- [ ] Open Lahoud SSRN 6521219 in a browser and record what it does.
+- [ ] Read the middle section of the K-PWM PDF before writing the related-work section.
+- [ ] After the course: PyTorch port, then RQ1–RQ2 on the quadruple tank.
+
+---
+
 ## 2026-11-14: Session 3: Direction chosen (D5), seed experiment, Q1 plan
 
 **Done**

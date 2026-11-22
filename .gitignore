@@ -27,3 +27,6 @@ mlruns/
 Thumbs.db
 .vscode/
 .idea/
+
+# learning exercise outputs
+learning/**/figures/
