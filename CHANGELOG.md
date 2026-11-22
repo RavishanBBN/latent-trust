@@ -24,6 +24,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Version
   - K-PWM upgraded to abstract + partial full-text verification, with details: decoder-based, constant Σ_w/Σ_v, no NIS monitor or calibration, MuJoCo only, code link.
   - Lahoud SSRN noted as blocked to automated fetches.
 - `.gitignore`: exercise figure outputs.
+- Merged the public GitHub repo `RavishanBBN/latent-trust` (its 12-commit history of the mini project) into the notebook:
+  - its README is now the front page, with a research-notebook index appended;
+  - its newer report in `report/` replaces the 2026-11-14 copy in `assignment/`, which was removed (the old copy stays in git history);
+  - `CLAUDE.md` and D5 now point to `report/`.
 
 ## [0.3.0] - 2026-11-14
 

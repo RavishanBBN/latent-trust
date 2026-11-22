@@ -1,7 +1,7 @@
 # D5: Latent Bayesian filtering and innovation-based trust monitoring for decoder-free world models
 
 **Status:** chosen direction (2026-11-14) · **Target:** Q1 journal · **Owner:** Nilesh Ravishan
-**Seed result:** the EN4594 mini project (`assignment/report.pdf`, code in `src/lbf`, `experiments/`)
+**Seed result:** the EN4594 mini project (`report/` PDF, code in `src/lbf`, `experiments/`)
 
 **Working title:** *Can I trust my world model? Bayesian filtering and innovation-based monitoring for
 decoder-free (JEPA) world models of controlled industrial processes*
@@ -163,7 +163,7 @@ Three remedies:
 ## 8. Plan and timeline
 | Period | Work | Output |
 |---|---|---|
-| until ~20 Nov 2026 | Submit the EN4594 report (done in `assignment/`) | Coursework |
+| until ~20 Nov 2026 | Submit the EN4594 report (done; see `report/`) | Coursework |
 | late Nov–Dec 2026 | Port to PyTorch; noise head + NLL; correlated-noise handling; UKF; adaptive Q/R; E1 ablations | RQ1–RQ2 answered on E1 |
 | Dec 2026–early Jan 2027 | TEP pipeline (Rieth data); baselines (PCA, ensembles, KalmanNet); E2 | First RQ3 table |
 | by 9 Jan 2027 | **Short arXiv preprint / workshop paper** (E1 + first E2): useful for the Imperial application (deadline 11 Jan) and HKPFS interviews | Preprint |

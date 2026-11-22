@@ -1,54 +1,62 @@
-# World Models — Research Notebook
+# LatentTrust: Latent-Space EKF with JEPA World Models
 
-Working notes for exploring **world models** and, specifically, **JEPA-style latent
-world models on sensor streams** as a possible research contribution.
+**When can a Bayesian filter trust a learned world model?**
+An Extended Kalman Filter (EKF) is run two ways on the nonlinear quadruple-tank process (Johansson, 2000): with the physics model, and inside the latent space of a self-supervised, action-conditioned JEPA world model learned from sensor data. Innovation (NIS) consistency tests are then used both to check the filters and to detect faults.
 
-> Status: **direction chosen (D5), seed code + results exist** · Docs version: see [CHANGELOG.md](CHANGELOG.md)
-> **Working with Claude Code? Read [CLAUDE.md](CLAUDE.md) first.**
-> Started: 2026-10-13
+Author: Nilesh Ravishan, University of Moratuwa (EN4594 Autonomous Systems mini project, 2026).
 
-## Origin
+![Fault detection](results/figures/b4_fault_detection.png)
 
-A friend suggested that within ~5 years, world models could have more industrial
-impact than LLMs have today, and that **JEPA on sensor streams** is a good area to
-contribute to. They shared two links, which are summarised under `docs/sources/`.
+## Key results (50 Monte Carlo runs)
 
-## Where things are
+| | Result |
+|---|---|
+| Physics EKF accuracy | RMSE 0.038 cm on measured levels, 0.034–0.038 cm on the two **unmeasured** tanks |
+| Physics EKF consistency | ANEES 4.10, ANIS 2.01; inside their χ² bands about 95% of the time |
+| NIS fault monitor | Hidden-tank leak and sensor bias detected in every run, median delays **36 s** and **5 s**; no false alarms observed |
+| JEPA world model + latent EKF | Recovers an unmeasured level (h₃ RMSE 0.107 cm) with no physics model, scored with a supervised read-out trained on simulated true levels |
+| Honest limitation | Learned latent dynamics are noisier than the measurements (tr R_lat 0.072 > tr Q_lat 0.023), so latent filtering adds only 0.7–1.8% over the raw encoder, and the latent NIS spikes at input steps |
+
+The limitation is the point: a learned model can be accurate on average yet badly calibrated, and a filter that trusts it inherits that miscalibration. Making learned dynamics trustworthy enough for estimation and fault monitoring is the research question this project opens.
+
+## What is implemented (NumPy only)
+
+- `src/lbf/quadtank.py`: quadruple-tank plant (minimum-phase setting) with analytic Jacobians
+- `src/lbf/ekf.py`: EKF in *Probabilistic Robotics* notation (process noise R, measurement noise Q), Joseph-form update
+- `src/lbf/metrics.py`: RMSE, NEES/NIS and χ² consistency bands, plus NIS change-detection helpers (windowed sum, CUSUM); the reported fault monitor is the 30 s windowed NIS sum
+- `src/lbf/autodiff.py`: a small reverse-mode automatic-differentiation engine (gradient-checked)
+- `src/lbf/jepa.py`: action-conditioned JEPA world model with an EMA target encoder and VICReg-style anti-collapse
+- `src/lbf/latent_ekf.py`: EKF in the learned latent space, with measurement model h(s) = s
+
+## Reproduce
+
+```bash
+pip install numpy scipy matplotlib
+python tests/test_autodiff.py          # gradient check
+pip install pytest && pytest -q        # EKF, Jacobian and chi-square tests
+python experiments/run_assignment.py   # ~8 min on a CPU; writes results/ (all figures and numbers)
+```
+
+The full write-up is in [EKF for State Estimation and Fault Detection in a Quadruple-Tank System](<report/EKF for State Estimation and Fault Detection in a Quadruple-Tank System.pdf>).
+
+## Figures
+
+| | |
+|---|---|
+| ![Tracking](results/figures/a1_tracking.png) | ![Consistency](results/figures/a2_consistency.png) |
+| EKF tracking of all four tank levels | NEES/NIS inside χ² bands |
+| ![Latent tracking](results/figures/b3_latent_tracking.png) | ![Leak sweep](results/figures/b5_leak_sweep.png) |
+| Latent EKF recovering an unmeasured level | Detection rate vs leak size |
+
+## Research notebook (ongoing)
+
+This mini project is the seed of a longer study: Bayesian filtering and calibrated, innovation-based trust monitoring for decoder-free (JEPA) world models of controlled industrial processes. Notes are versioned alongside the code:
 
 | Path | What it holds |
 |------|---------------|
-| [docs/PROGRESS.md](docs/PROGRESS.md) | Dated log: what was done, decisions, next steps. **Start here.** |
-| [docs/reading-list.md](docs/reading-list.md) | 41 verified peer-reviewed papers + 5 essential preprints, in 6 stages, with a ★ core path |
-| [docs/sources/01-blog-llms-world-models.md](docs/sources/01-blog-llms-world-models.md) | Summary and notes on Shamane Siriwardhana's blog post |
-| [docs/sources/02-osiris-repo.md](docs/sources/02-osiris-repo.md) | Summary and assessment of the OSIRIS GitHub repo |
-| [docs/literature/jepa-sensor-streams.md](docs/literature/jepa-sensor-streams.md) | Related-work table: JEPA and latent world models on time series and sensors |
-| [docs/research/thesis-and-directions.md](docs/research/thesis-and-directions.md) | The "world models vs LLMs" claim, gaps found, and candidate contributions |
-| [docs/research/D5-latent-bayesian-filtering.md](docs/research/D5-latent-bayesian-filtering.md) | **Chosen direction (Q1 plan):** latent Bayesian filtering + innovation-based trust monitoring for JEPA world models |
-| [docs/literature/latent-filtering-related-work.md](docs/literature/latent-filtering-related-work.md) | Verified related work for D5 (filters, learned filters, 2025–26 close works) |
-| [docs/literature/datasets-and-benchmarks.md](docs/literature/datasets-and-benchmarks.md) | Quadruple tank, TEP, PRONTO (real), HVAC, SWaT; FDD baselines |
-| [docs/publishing/target-journals.md](docs/publishing/target-journals.md) | Q1 targets and verified fees (free subscription routes) |
-| `src/lbf/`, `experiments/`, `tests/`, `results/` | Seed code (NumPy): quadruple tank, EKF, JEPA world model, latent EKF |
-| `assignment/` | EN4594 mini-project report (the seed experiment) |
-| [CHANGELOG.md](CHANGELOG.md) | Versioned history of these docs |
-
-## Working conventions
-
-1. **Every work session** adds a dated entry to `docs/PROGRESS.md`.
-2. **Every meaningful doc change** adds a line under `## [Unreleased]` in `CHANGELOG.md`.
-   When a milestone is reached, the changes are released as a new version (`0.x.0`) and the commit is tagged.
-3. **Commit** after each session with a short, descriptive message.
-4. **Mark verification level** on claims about papers:
-   - `search` means only a search-result title or snippet was seen.
-   - `abstract` means only the arXiv abstract or page was read.
-   - `full` means the full paper was read.
-   - `code` means the code was run.
-5. **Never record paper claims from memory.** Every paper entry must have a link.
-
-## Moving to a remote repo later
-
-This folder is already a local git repository. Once the GitHub repo exists:
-
-```bash
-git remote add origin <repo-url>
-git push -u origin main --tags
-```
+| [docs/PROGRESS.md](docs/PROGRESS.md) | Dated log of each work session: what was done, findings, decisions and next steps |
+| [docs/research/](docs/research/) | Research directions and the chosen plan |
+| [docs/literature/](docs/literature/) | Related work, datasets and benchmarks. Every entry has a link and a verification level |
+| [docs/reading-list.md](docs/reading-list.md) | Staged reading list: self-supervised learning → JEPA → world models → time series |
+| [learning/](learning/) | Foundations course: lessons and self-checking exercises (probability → filtering → JEPA) |
+| [CHANGELOG.md](CHANGELOG.md) | Versioned history of the notebook |

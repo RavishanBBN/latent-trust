@@ -1,7 +1,7 @@
 """EN4594 mini project: EKF for the quadruple-tank process, from a physics model to a learned
 latent (JEPA) world model. Produces every figure and number used in the report.
 
-Run:  python experiments/run_assignment.py          (about 3-5 minutes on a laptop CPU)
+Run:  python experiments/run_assignment.py          (about 8 minutes on a laptop CPU)
 Outputs: results/figures/*.pdf, results/results.json
 """
 from __future__ import annotations

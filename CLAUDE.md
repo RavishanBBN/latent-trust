@@ -19,7 +19,7 @@ It is a research notebook (started 2026-10-13) that is now also a code repo:
   - `jepa.py`: an action-conditioned JEPA world model;
   - `latent_ekf.py`: an EKF in the JEPA latent space.
 - `experiments/run_assignment.py`: reproduces every number and figure of the EN4594 report. It takes about 7 min on a CPU and writes `results/`.
-- `assignment/`: the submitted EN4594 mini-project report (`report.tex`, `report.pdf`).
+- `report/`: the submitted EN4594 mini-project report (`report.tex` and the PDF) and its figures.
 - `tests/test_autodiff.py`: a finite-difference gradient check.
 
 ## 2. The research idea (D5) in one paragraph
